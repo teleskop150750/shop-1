@@ -1,11 +1,76 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html class="page" lang="ru">
+
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="style/bootstrap.min.css">
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/header.css">
+  <link rel="stylesheet" href="style/home.css">
+  <title>О нас</title>
 </head>
-<body>
-  <p>qwe</p>
+
+<body class="page__body">
+  <header class="page__header container-fluid position-relative p-0 p-lg-3">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-1">
+      <a class="navbar-brand" href="/">Enavant</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse pl-4 justify-content-lg-between" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link nav-link--active">О Нас</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Написать нам</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Контакты</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Женская одежда</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Мужская одежда</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Корзина</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main class="page__main page__main--mod container-fluid py-5">
+      <div class="container shadow p-3 mb-5 bg-white rounded" >
+        <h1 class="display-4">О нас</h1>
+        <p class="lead"> Одежда – популярный товар, который покупают и онлайн, и в розничных магазинах. Женская,
+          детская, мужская, одежда для торжеств и повседневная – огромное количество разных ниш существует в этом
+          сегменте.</p>
+        <p class="lead">
+          Можно выбрать направление развития мультибрендового магазина или магазина одежды определенной
+          страны-производителя, одежду для конкретной категории людей или одежду для определенных случаев.</p>
+        <p class="lead">
+          Корона-кризис и введенные в связи с ним ограничения существенно повлияли на многие сферы бизнеса и на формат
+          поведения потребителей в целом. И если компании, работающие в офлайн-среде, закрылись или испытывали трудности
+          в это время, онлайн-продажи, наоборот, росли и продолжают расти. </p>
+      </div>
+  </main>
+  <footer class='container-fluid p-4'>
+    <div class="row ">
+      <div class="col text-center">
+        ГПОУ ТО "Донской колледж информационных технологий" Кузьмина Анастасия 4-П-1 © 2021
+      </div>
+    </div>
+  </footer>
+  <script src="script/header.js"></script>
+
+  <script src="script/jquery-3.5.1.min.js"></script>
+  <script src="script/bootstrap.min.js"></script>
 </body>
+
 </html>

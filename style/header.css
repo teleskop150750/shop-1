@@ -45,6 +45,15 @@
     transition: all 0.4s ease-in-out;
   }
 
+  .nav-item {
+    margin: 0 3px;
+  }
+
+  .nav-link {
+    padding: 0.4rem !important;
+  }
+
+  .nav-link--active::after,
   .navbar-brand:focus::after,
   .nav-link:focus::after,
   .navbar-brand:hover::after,

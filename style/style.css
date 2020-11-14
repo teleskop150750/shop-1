@@ -7,3 +7,7 @@
 .errForm {
   border: 2px solid red;
 }
+
+.page__main--mod {
+  background-color: #e9ecef;
+}

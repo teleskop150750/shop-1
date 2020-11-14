@@ -19,16 +19,14 @@
 }
 
 .navbar-brand,
-.nav-link {
+.nav__link {
   position: relative;
   color: #ffffff !important;
   letter-spacing: 0.6px;
 }
 
-.navbar-brand:focus,
-.nav-link:focus,
-.navbar-brand:hover,
-.nav-link:hover {
+.nav__link:focus,
+.nav__link:hover {
   outline: none;
 }
 
@@ -49,15 +47,13 @@
     margin: 0 3px;
   }
 
-  .nav-link {
+  .nav__link {
     padding: 0.4rem !important;
   }
 
-  .nav-link--active::after,
-  .navbar-brand:focus::after,
-  .nav-link:focus::after,
-  .navbar-brand:hover::after,
-  .nav-link:hover::after {
+  .nav__link--active::after,
+  .nav__link:focus::after,
+  .nav__link:hover::after {
     width: 100%;
   }
 }

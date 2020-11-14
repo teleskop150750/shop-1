@@ -4,10 +4,22 @@
   min-height: 100vh;
 }
 
+a {
+  color: inherit;
+}
+
 .errForm {
   border: 2px solid red;
 }
 
 .page__main--mod {
-  background-color: #e9ecef;
+  background-color: #f1f1f1;
+}
+
+.contact-map {
+  min-height: 400px;
+  background-image: url('../img/map.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }

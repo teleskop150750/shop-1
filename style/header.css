@@ -2,43 +2,16 @@ header {
   background-color: #b8c4ff;
 }
 
-.logo {
-  color: #00008b;
-  transform: rotate(2deg);
+.navbar-collapse {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #b8c4ff;
 }
 
-.headerTopMenu > div {
-  margin-bottom: 3px;
-  cursor: pointer;
-}
-
-.headerTopMenu > div > a > p {
-  font-size: 1vmax;
-  color: black;
-  text-decoration: none;
-}
-
-.headerTopMenu > div > a:hover {
-  color: black;
-  text-decoration: none;
-}
-
-.headerTopMenu > div:hover {
-  margin-bottom: 0;
-  border-bottom: 3px solid black;
-}
-
-.headerTopMenu > div:active {
-  border-radius: 10px;
-  box-shadow: inset 0 0 5px 0 rgba(0, 0, 0, 0.75);
-}
-
-.menu_select_header {
-  font-size: 1.5vmax;
-  color: #00008b;
-}
-
-.menu_select_header > div > p:hover {
-  text-decoration: underline;
-  cursor: pointer;
+@media (min-width: 992px) {
+  .navbar-collapse {
+    position: static;
+  }
 }

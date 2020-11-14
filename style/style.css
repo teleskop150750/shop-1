@@ -6,8 +6,14 @@
 }
 
 @font-face {
-  font-family: "logo";
-  src: url("../font/MarckScript-Regular.ttf");
+  font-family: 'logo';
+  src: url('../font/MarckScript-Regular.ttf');
+}
+
+.page__body {
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  min-height: 100vh;
 }
 
 .errForm {

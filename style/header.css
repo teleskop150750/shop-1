@@ -1,6 +1,21 @@
 .page__header {
   font-size: 1.2rem;
   font-weight: 700;
+  background-color: #b8c4ff;
+}
+
+.navbar-collapse {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #b8c4ff;
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse {
+    position: static;
+  }
 }
 
 .navbar-brand,
@@ -10,18 +25,6 @@
   letter-spacing: 0.6px;
 }
 
-.navbar-brand::after,
-::after {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  content: '';
-  background: #ffffff;
-  transition: all 0.4s ease-in-out;
-}
-
 .navbar-brand:focus,
 .nav-link:focus,
 .navbar-brand:hover,
@@ -29,9 +32,23 @@
   outline: none;
 }
 
-.navbar-brand:focus::after,
-.nav-link:focus::after,
-.navbar-brand:hover::after,
-.nav-link:hover::after {
-  width: 100%;
+@media (min-width: 992px) {
+  .navbar-brand::after,
+  ::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    content: '';
+    background: #ffffff;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .navbar-brand:focus::after,
+  .nav-link:focus::after,
+  .navbar-brand:hover::after,
+  .nav-link:hover::after {
+    width: 100%;
+  }
 }

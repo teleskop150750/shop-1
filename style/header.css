@@ -1,0 +1,38 @@
+header{
+  background-color: #B8C4FF;
+}
+.logo{
+  font-family: 'logo';
+  font-size: 4vmax;
+  transform: rotate(2deg);
+  color:#00008B;
+}
+.headerTopMenu > div{
+  margin-bottom: 3px;
+  cursor: pointer;
+}
+.headerTopMenu > div > a > p{
+  color:black;
+  text-decoration: none;
+  font-size: 1vmax;
+}
+.headerTopMenu > div > a:hover{
+  color:black;
+  text-decoration: none;
+}
+.headerTopMenu > div:hover{
+  margin-bottom: 0px;
+  border-bottom: 3px solid black;
+}
+.headerTopMenu > div:active{
+  box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+  border-radius: 10px;
+}
+.menu_select_header{
+  font-size: 1.5vmax;
+  color:#00008B;
+}
+.menu_select_header > div > p:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}

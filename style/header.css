@@ -47,6 +47,11 @@
     margin: 0 3px;
   }
 
+  .navbar-brand {
+    padding-right: 0.8rem;
+    padding-left: 0.8rem;
+  }
+
   .nav__link {
     padding: 0.4rem !important;
   }

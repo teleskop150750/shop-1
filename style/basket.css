@@ -1,50 +1,48 @@
-
-.basketModalFonBig{
-  background-color: rgba(0,0,0,0.9);
-  width:100vw;
+.basketModalFonBig {
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100vw;
   height: 100vh;
-  top:0px;
-  left:0px;
-  position:fixed;
+  top: 0px;
+  left: 0px;
+  position: fixed;
   z-index: 20;
-  color:#ffffff;
+  color: #ffffff;
 }
-.basketModalFonBig h1{
+.basketModalFonBig h1 {
   font-size: 2vmax;
 }
-.basketModalFonBig p{
+.basketModalFonBig p {
   font-size: 1vmax;
 }
-.basketModalFonBig input{
+.basketModalFonBig input {
   font-size: 1vmax;
-
 }
-.basketModalMini{
-  background-color: rgba(0,0,0,0.9);
+.basketModalMini {
+  background-color: rgba(0, 0, 0, 0.9);
   z-index: 20;
   width: 40vw;
   height: 40vh;
-  left:30vw;
-  top:30vh;
+  left: 30vw;
+  top: 30vh;
   border-radius: 5px;
   position: fixed;
-  color:#ffffff;
+  color: #ffffff;
 }
-@media all and (max-width:768px){
-  .basketModalMini{
-    background-color: rgba(0,0,0,0.9);
+@media all and (max-width: 768px) {
+  .basketModalMini {
+    background-color: rgba(0, 0, 0, 0.9);
     z-index: 20;
     width: 80vw;
     height: 40vh;
-    left:10vw;
-    top:30vh;
+    left: 10vw;
+    top: 30vh;
     position: fixed;
   }
 }
-.basketModalMini p{
+.basketModalMini p {
   font-size: 1.5vmax;
 }
-.basketModalMini input{
+.basketModalMini input {
   font-size: 1vmax;
-  width:60%;
+  width: 60%;
 }

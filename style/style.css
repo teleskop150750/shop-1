@@ -1,18 +1,6 @@
-*,
-*::after,
-*::before {
-  padding: 0;
-  margin: 0;
-}
-
-@font-face {
-  font-family: 'logo';
-  src: url('../font/MarckScript-Regular.ttf');
-}
-
 .page__body {
   display: grid;
-  grid-template-rows: min-content 1fr min-content;
+  grid-template-rows: min-content minmax(320px, 1fr) min-content;
   min-height: 100vh;
 }
 

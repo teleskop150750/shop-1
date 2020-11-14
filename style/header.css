@@ -1,17 +1,37 @@
-header {
-  background-color: #b8c4ff;
+.page__header {
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
-.navbar-collapse {
+.navbar-brand,
+.nav-link {
+  position: relative;
+  color: #ffffff !important;
+  letter-spacing: 0.6px;
+}
+
+.navbar-brand::after,
+::after {
   position: absolute;
-  top: 100%;
+  bottom: 0;
   left: 0;
-  width: 100%;
-  background-color: #b8c4ff;
+  width: 0;
+  height: 2px;
+  content: '';
+  background: #ffffff;
+  transition: all 0.4s ease-in-out;
 }
 
-@media (min-width: 992px) {
-  .navbar-collapse {
-    position: static;
-  }
+.navbar-brand:focus,
+.nav-link:focus,
+.navbar-brand:hover,
+.nav-link:hover {
+  outline: none;
+}
+
+.navbar-brand:focus::after,
+.nav-link:focus::after,
+.navbar-brand:hover::after,
+.nav-link:hover::after {
+  width: 100%;
 }

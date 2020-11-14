@@ -1,0 +1,5 @@
+/node_modules/
+/min/
+style/bootstrap.min.css
+/src/css/libs/
+/src/js/libs/

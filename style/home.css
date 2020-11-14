@@ -1,21 +1,19 @@
-footer{
-  background-color: #B8C4FF;
+footer {
+  background-color: #b8c4ff;
 }
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-
-
-  background-size: 100%, 100%;
-
-
   background-image: none;
+  background-size: 100%, 100%;
 }
-.carousel-control-prev-icon:after {
-  content: '<';
-  font-size: 12vmax;
 
-}
-.carousel-control-next-icon:after {
-  content: '>';
+.carousel-control-prev-icon::after {
   font-size: 12vmax;
+  content: '<';
+}
+
+.carousel-control-next-icon::after {
+  font-size: 12vmax;
+  content: '>';
 }

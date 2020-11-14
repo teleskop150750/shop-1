@@ -1,0 +1,21 @@
+footer{
+  background-color: #B8C4FF;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+
+
+  background-size: 100%, 100%;
+
+
+  background-image: none;
+}
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 12vmax;
+
+}
+.carousel-control-next-icon:after {
+  content: '>';
+  font-size: 12vmax;
+}

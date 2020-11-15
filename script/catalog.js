@@ -45,6 +45,22 @@ const fJeans = document.querySelector('#filterJeans');
 const fUnders = document.querySelector('#filterUndershirt');
 const fAll = document.querySelector('#filterAll');
 
+function butCheck(but) {
+  fSport.classList.remove('btn-success');
+  fSport.classList.add('btn-secondary');
+  fAll.classList.remove('btn-success');
+  fAll.classList.add('btn-secondary');
+  fJacket.classList.remove('btn-success');
+  fJacket.classList.add('btn-secondary');
+  fJeans.classList.remove('btn-success');
+  fJeans.classList.add('btn-secondary');
+  fUnders.classList.remove('btn-success');
+  fUnders.classList.add('btn-secondary');
+
+  but.classList.remove('btn-secondary');
+  but.classList.add('btn-success');
+}
+
 fSport.onclick = () => {
   filterCatalog('sport', arrSel);
   butCheck(fSport);
@@ -68,22 +84,6 @@ fUnders.onclick = () => {
   filterCatalog('undershirt', arrSel);
   butCheck(fUnders);
 };
-
-function butCheck(but) {
-  fSport.classList.remove('btn-success');
-  fSport.classList.add('btn-secondary');
-  fAll.classList.remove('btn-success');
-  fAll.classList.add('btn-secondary');
-  fJacket.classList.remove('btn-success');
-  fJacket.classList.add('btn-secondary');
-  fJeans.classList.remove('btn-success');
-  fJeans.classList.add('btn-secondary');
-  fUnders.classList.remove('btn-success');
-  fUnders.classList.add('btn-secondary');
-
-  but.classList.remove('btn-secondary');
-  but.classList.add('btn-success');
-}
 
 function stopModal() {
   setTimeout(() => {

@@ -90,7 +90,7 @@
       </div>
     </div>
 
-    <div v-if="catalog_modal" class="row molalFon">
+    <div v-if="catalog_modal" class="row molalFon" style="z-index: 1000;">
       <div class="col-12 mt-3 mr-3 text-right">
         <span v-on:click="catalog_modal = false" style="cursor: pointer;">Закрыть</span>
       </div>
@@ -119,7 +119,7 @@
       </div>
     </div>
     <div v-if='modalAddbasket || modalErrBasket' v-on:click='modalAddbasket = false, modalErrBasket=false'
-      class="molalFon">
+      class="molalFon" style="z-index: 1000;">
       <div class="row">
         <div class="col-12 text-center h1" style='margin-top: 20vw;'>
           <p v-if="modalErrBasket">Данный товар уже добавлен в корзину</p>

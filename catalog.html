@@ -21,20 +21,20 @@
         <div class="row headerTopMenu">
           <div class="col-4 text-center homeMenu">
             <a>
-              <img src="img/3643769-building-home-house-main-menu-start_113416.png" style='width:3vmax;' alt="">
+              <img src="img/3643769-building-home-house-main-menu-start_113416.png" style='width: 3vmax;' alt="">
               <p>Главная</p>
             </a>
           </div>
           <div class="col-4 text-center messMenu">
             <a>
-              <img src="img/1904660-email-envelope-letter-mail-message-post-send_122510.png" style='width:3vmax;'
+              <img src="img/1904660-email-envelope-letter-mail-message-post-send_122510.png" style='width: 3vmax;'
                 alt="">
               <p>Написать нам</p>
             </a>
           </div>
           <div class="col-4 text-center basketMenu">
             <a>
-              <img src="img/2849824-basket-buy-market-multimedia-shop-shopping-store_107977.png" style='width:3vmax;'
+              <img src="img/2849824-basket-buy-market-multimedia-shop-shopping-store_107977.png" style='width: 3vmax;'
                 alt="">
               <p>Ваши покупки</p>
               </p>
@@ -103,7 +103,7 @@
     </div>
     <div v-if="catalog_modal" class="row molalFon">
       <div class="col-12 mt-3 mr-3 text-right">
-        <span v-on:click="catalog_modal = false" style="cursor:pointer">Закрыть</span>
+        <span v-on:click="catalog_modal = false" style="cursor: pointer;">Закрыть</span>
       </div>
       <div class="col-12">
         <div class="row justify-content-center">
@@ -132,7 +132,7 @@
     <div v-if='modalAddbasket || modalErrBasket' v-on:click='modalAddbasket = false, modalErrBasket=false'
       class="molalFon">
       <div class="row">
-        <div class="col-12 text-center h1" style='margin-top:20vw;'>
+        <div class="col-12 text-center h1" style='margin-top: 20vw;'>
           <p v-if="modalErrBasket">Данный товар уже добавлен в корзину</p>
           <p v-if="modalAddbasket">Товар добавлен в корзину</p>
         </div>

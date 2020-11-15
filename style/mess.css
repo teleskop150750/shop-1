@@ -1,3 +1,9 @@
 .err {
   border: 2px solid red;
 }
+
+.mess__hanger {
+  background-image: url('../img/hanger.png');
+  background-position: center;
+  background-size: cover;
+}

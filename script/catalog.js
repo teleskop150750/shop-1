@@ -1,61 +1,72 @@
-let nameCatalog = localStorage.getItem('catalog');
+const nameCatalog = localStorage.getItem('catalog');
 let arrSel = [];
 
-
-if (nameCatalog == 'man'){
+if (nameCatalog === 'man' || nameCatalog === null) {
+  const linkW = document.querySelector('.nav__link--w');
+  const linkM = document.querySelector('.nav__link--m');
+  linkM.classList.add('nav__link--active');
+  linkW.classList.remove('nav__link--active');
+  linkM.removeAttribute('href');
+  linkW.href = './catalog.html';
   start(man);
   arrSel = man;
-}
-else if (nameCatalog == 'woman'){
+} else if (nameCatalog === 'woman') {
+  const linkW = document.querySelector('.nav__link--w');
+  const linkM = document.querySelector('.nav__link--m');
+  console.log(linkW);
+  linkW.classList.add('nav__link--active');
+  linkM.classList.remove('nav__link--active');
+  linkW.removeAttribute('href');
+  linkM.href = './catalog.html';
   start(woman);
   arrSel = woman;
 }
 
-function start(arrey){
+function start(arrey) {
   vueCatalog.arr = arrey;
 }
 
-function filterCatalog(category,arr){
-  let out = [];
-  for (let i = 0; i < arr.length;i++){
-    if (category == arr[i]['category']){
+function filterCatalog(category, arr) {
+  const out = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (category === arr[i].category) {
       out.push(arr[i]);
     }
   }
   vueCatalog.arr = out;
 }
 
-let fSport = document.querySelector('#filterSport');
-let fJacket = document.querySelector('#filterJacket');
-let fJeans = document.querySelector('#filterJeans');
-let fUnders = document.querySelector('#filterUndershirt');
-let fAll = document.querySelector('#filterAll');
+const fSport = document.querySelector('#filterSport');
+const fJacket = document.querySelector('#filterJacket');
+const fJeans = document.querySelector('#filterJeans');
+const fUnders = document.querySelector('#filterUndershirt');
+const fAll = document.querySelector('#filterAll');
 
-fSport.onclick = ()=>{
-  filterCatalog('sport',arrSel);
+fSport.onclick = () => {
+  filterCatalog('sport', arrSel);
   butCheck(fSport);
-}
+};
 
-fAll.onclick = ()=>{
+fAll.onclick = () => {
   start(arrSel);
   butCheck(fAll);
-}
-fJacket.onclick = ()=>{
-  filterCatalog('jacket',arrSel);
+};
+fJacket.onclick = () => {
+  filterCatalog('jacket', arrSel);
   butCheck(fJacket);
-}
+};
 
-fJeans.onclick = ()=>{
-  filterCatalog('jeans',arrSel);
+fJeans.onclick = () => {
+  filterCatalog('jeans', arrSel);
   butCheck(fJeans);
-}
+};
 
-fUnders.onclick = ()=>{
-  filterCatalog('undershirt',arrSel);
+fUnders.onclick = () => {
+  filterCatalog('undershirt', arrSel);
   butCheck(fUnders);
-}
+};
 
-function butCheck(but){
+function butCheck(but) {
   fSport.classList.remove('btn-success');
   fSport.classList.add('btn-secondary');
   fAll.classList.remove('btn-success');
@@ -71,9 +82,9 @@ function butCheck(but){
   but.classList.add('btn-success');
 }
 
-function stopModal(){
-  setTimeout(function(){
+function stopModal() {
+  setTimeout(() => {
     vueCatalog.modalErrBasket = false;
     vueCatalog.modalAddbasket = false;
-  },800);
+  }, 800);
 }

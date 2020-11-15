@@ -66,6 +66,17 @@
     transition: all 0.4s ease-in-out;
   }
 
+  .nav__link--s::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    width: 0;
+    height: 2px;
+    content: '';
+    background: #ffffff;
+  }
+
   .nav__link--active::after,
   .nav__link:focus::after,
   .nav__link:hover::after {

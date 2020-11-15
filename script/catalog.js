@@ -1,10 +1,26 @@
 const nameCatalog = localStorage.getItem('catalog');
 let arrSel = [];
 
-if (nameCatalog === 'man') {
+if (nameCatalog === 'man' || nameCatalog === null) {
+  const linkW = document.querySelector('.nav__link--w');
+  const linkM = document.querySelector('.nav__link--m');
+  linkM.classList.remove('nav__link');
+  linkM.classList.add('nav__link--active');
+  linkW.classList.remove('nav__link--active');
+  linkW.classList.add('nav__link');
+  linkM.removeAttribute('href');
+  linkW.href = './catalog.html';
   start(man);
   arrSel = man;
 } else if (nameCatalog === 'woman') {
+  const linkW = document.querySelector('.nav__link--w');
+  const linkM = document.querySelector('.nav__link--m');
+  linkW.classList.remove('nav__link');
+  linkW.classList.add('nav__link--active');
+  linkM.classList.remove('nav__link--active');
+  linkM.classList.add('nav__link');
+  linkW.removeAttribute('href');
+  linkM.href = './catalog.html';
   start(woman);
   arrSel = woman;
 }

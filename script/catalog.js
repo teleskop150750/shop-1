@@ -1,6 +1,10 @@
 const nameCatalog = localStorage.getItem('catalog');
 let arrSel = [];
 
+function start(arrey) {
+  vueCatalog.arr = arrey;
+}
+
 if (nameCatalog === 'man') {
   const linkW = document.querySelector('.nav__link--w');
   const linkM = document.querySelector('.nav__link--m');
@@ -23,10 +27,6 @@ if (nameCatalog === 'man') {
   linkM.href = './catalog.html';
   start(woman);
   arrSel = woman;
-}
-
-function start(arrey) {
-  vueCatalog.arr = arrey;
 }
 
 function filterCatalog(category, arr) {

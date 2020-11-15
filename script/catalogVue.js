@@ -9,18 +9,20 @@ const vueCatalog = new Vue({
   },
   methods: {
     readComent(id) {
-      if (localStorage.getItem('catalog') === 'man') {
+      if (localStorage.getItem('catalog') == 'man') {
         for (let i = 0; i < man.length; i++) {
-          if (man[i].id === id) {
+          if (man[i].id == id) {
             this.arr_coment = man[i].coment;
             this.catalog_modal = id;
+            console.log(man[i].coment);
           }
         }
-      } else if (localStorage.getItem('catalog') === 'woman') {
+      } else if (localStorage.getItem('catalog') == 'woman') {
         for (let i = 0; i < woman.length; i++) {
-          if (woman[i].id === id) {
+          if (woman[i].id == id) {
             this.arr_coment = woman[i].coment;
             this.catalog_modal = id;
+            console.log(woman[i].coment);
           }
         }
       }
@@ -28,17 +30,17 @@ const vueCatalog = new Vue({
     addComent() {
       const text = document.querySelector('.coment_text');
 
-      if (localStorage.getItem('catalog') === 'man') {
+      if (localStorage.getItem('catalog') == 'man') {
         for (let i = 0; i < man.length; i++) {
-          if (man[i].id === this.catalog_modal) {
+          if (man[i].id == this.catalog_modal) {
             man[i].coment.push(text.value);
             text.value = '';
           }
         }
       }
-      if (localStorage.getItem('catalog') === 'woman') {
+      if (localStorage.getItem('catalog') == 'woman') {
         for (let i = 0; i < woman.length; i++) {
-          if (woman[i].id === this.catalog_modal) {
+          if (woman[i].id == this.catalog_modal) {
             woman[i].coment.push(text.value);
             text.value = '';
           }
@@ -51,7 +53,7 @@ const vueCatalog = new Vue({
         array = array.split(',');
         let err = true;
         for (let i = 0; i < array.length; i++) {
-          if (array[i] === arr.id) {
+          if (array[i] == arr.id) {
             err = false;
             this.modalErrBasket = true;
             stopModal();

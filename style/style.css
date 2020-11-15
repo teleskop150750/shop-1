@@ -35,6 +35,13 @@ a {
   background-color: #f1f1f1;
 }
 
+.page__main--index {
+  background-image: url('../img/fon.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 .contact-map {
   min-height: 400px;
   background-image: url('../img/map.png');

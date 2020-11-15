@@ -31,10 +31,10 @@
             <a class="nav-link nav__link" href="./contact.html">Контакты</a>
           </li>
           <li class="nav-item pl-3 pl-lg-0">
-            <a class="nav-link nav__link nav__link--w" href="./catalog.html">Женская одежда</a>
+            <a class="nav-link nav__link nav__link--s nav__link--w" href="./catalog.html">Женская одежда</a>
           </li>
           <li class="nav-item pl-3 pl-lg-0">
-            <a class="nav-link nav__link nav__link--m" href="./catalog.html">Мужская одежда</a>
+            <a class="nav-link nav__link nav__link--s nav__link--m" href="./catalog.html">Мужская одежда</a>
           </li>
         </ul>
         <ul class="navbar-nav">
@@ -45,17 +45,18 @@
       </div>
     </nav>
   </header>
-  <script src='script/vue.min.js'></script>
-  <main id="catalog_Vue" class='container-fluid'>
+  <script src="script/vue.min.js"></script>
+  <main id="catalog_Vue" class="container-fluid">
+    <h1 class="visually-hidden">Каталог товаров</h1>
 
     <div class="row justify-content-center mt-5">
 
       <div class="col-12">
-        <input type="button" id='filterAll' class='btn btn-success' name="" value="Показать все">
-        <input type="button" id='filterJacket' class='btn btn-secondary' name="" value="Куртки">
-        <input type="button" id='filterJeans' class='btn btn-secondary' name="" value="Джинсы">
-        <input type="button" id='filterUndershirt' class='btn btn-secondary' name="" value="Футболки">
-        <input type="button" id='filterSport' class='btn btn-secondary' name="" value="спорт">
+        <button type="button" id="filterAll" class="btn btn-success">Показать все</button>
+        <button type="button" id="filterJacket" class="btn btn-secondary">Куртки</button>
+        <button type="button" id="filterJeans" class="btn btn-secondary">Джинсы</button>
+        <button type="button" id="filterUndershirt" class="btn btn-secondary">Футболки</button>
+        <button type="button" id="filterSport" class="btn btn-secondary">спорт</button>
       </div>
 
       <div v-for="(key, i) in arr" class="card ml-2 mt-2 myCard" style="width: 18rem;">
@@ -89,9 +90,8 @@
               class='btn btn-secondary' value='Коментарии'></div>
         </div>
       </div>
-
-
     </div>
+
     <div v-if="catalog_modal" class="row molalFon">
       <div class="col-12 mt-3 mr-3 text-right">
         <span v-on:click="catalog_modal = false" style="cursor: pointer;">Закрыть</span>

@@ -6,6 +6,17 @@
   src: url("../fonts/Pacifico-Regular.woff2") format("woff2");
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
 .page__body {
   display: grid;
   grid-template-rows: min-content minmax(320px, 1fr) min-content;

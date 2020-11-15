@@ -1,187 +1,191 @@
 <!DOCTYPE html>
 <html class="page" lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style/header.css">
-    <link rel="stylesheet" href="style/bootstrap.min.css">
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/basket.css">
-    <title>Корзина</title>
-  </head>
-  <body class="page__body">
-    <header class='container-fluid'>
-      <div class="row align-items-center">
-        <div class="col-12 col-md-4 text-center logo mt-5">
-          Модная Одежда
-        </div>
-        <div class="offset-md-4 col-12 col-md-4 mt-5">
-          <div class="row headerTopMenu">
-            <div class="col-4 text-center homeMenu">
-              <a >
-                <img src="img/3643769-building-home-house-main-menu-start_113416.png" style='width:3vmax;' alt="">
-                <p>Главная</p>
-              </a>
-            </div>
-            <div class="col-4 text-center messMenu">
-              <a>
-                <img src="img/1904660-email-envelope-letter-mail-message-post-send_122510.png" style='width:3vmax;' alt="">
-                <p>Написать нам</p>
-              </a>
-            </div>
-            <div class="col-4 text-center basketMenu">
-              <a >
-                <img src="img/2849824-basket-buy-market-multimedia-shop-shopping-store_107977.png" style='width:3vmax;' alt="">
-                <p>Ваши покупки</p>
-              </p>
-            </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12">
-          <div class="row mt-4 menu_select_header">
-            <div class="col-6 text-center">
-              <p class="catalogWoman">Женская одежда</p>
-            </div>
-            <div class="col-6 text-center">
-              <p class='catalogMan'>Мужская одежда</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-    <script src='script/vue.min.js'></script>
-    <main id="basket" class='container-fluid'>
-      <div class="row justify-content-center mt-4">
-        <div v-if="outArr" class="col-10 ">
-          <div class="row">
-            <div v-if="!checkArr"  class="col-12">
-              <input v-on:click="modalFonMess = 'all'" type="button" name="" class='btn btn-danger' value="Удалить все">
-              <span>Цена: {{allCount}}р.</span>
-              <input v-on:click="shoping('false','all')" class='btn btn-success' type="button" name="" value="Купить все">
-            </div>
-            <div v-if="checkArr" class="col-12">
-              <input v-on:click="modalFonMess = 'select'" type="button" class="btn btn-danger" name="" value="Удалить выбранное">
-              <span class="">Цена: {{allCount}}р.</span>
-              <input v-on:click="shoping('false','select')" type="button" class='btn btn-success' name="" value="Купить Выбранный товар">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div v-if="!outArr" class="row mt-5">
-        <div class="col-12 text-center">
-          <h1>Ваша корзина пока пуста</h1>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="style/bootstrap.min.css">
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/header.css">
+  <link rel="stylesheet" href="style/basket.css">
+  <title>Корзина</title>
+</head>
+
+<body class="page__body">
+  <header class="page__header container-fluid position-relative p-0 p-lg-3">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-1">
+      <a class="navbar-brand nav-link logo">En Avant</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse pl-4 pl-lg-2 pb-2 pb-lg-0 justify-content-lg-between" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item pl-3 pl-lg-0">
+            <a class="nav-link nav__link" href="./about.html">О нас</a>
+          </li>
+          <li class="nav-item pl-3 pl-lg-0">
+            <a class="nav-link nav__link" href="./mess.html">Написать нам</a>
+          </li>
+          <li class="nav-item pl-3 pl-lg-0">
+            <a class="nav-link nav__link" href="./contact.html">Контакты</a>
+          </li>
+          <li class="nav-item pl-3 pl-lg-0">
+            <a class="nav-link nav__link nav__link-w" href="./catalog.html">Женская одежда</a>
+          </li>
+          <li class="nav-item pl-3 pl-lg-0">
+            <a class="nav-link nav__link nav__link-m" href="./catalog.html">Женская одежда</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item pl-3 pl-lg-0">
+            <a class="nav-link nav__link" href="./basket.html">Корзина</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main id="basket" class='container-fluid'>
+    <div class="row justify-content-center mt-4">
+      <div v-if="outArr" class="col-10 ">
+        <div class="row">
+          <div v-if="!checkArr" class="col-12">
+            <input v-on:click="modalFonMess = 'all'" type="button" name="" class='btn btn-danger' value="Удалить все">
+            <span>Цена: {{allCount}}р.</span>
+            <input v-on:click="shoping('false','all')" class='btn btn-success' type="button" name="" value="Купить все">
+          </div>
+          <div v-if="checkArr" class="col-12">
+            <input v-on:click="modalFonMess = 'select'" type="button" class="btn btn-danger" name=""
+              value="Удалить выбранное">
+            <span class="">Цена: {{allCount}}р.</span>
+            <input v-on:click="shoping('false','select')" type="button" class='btn btn-success' name=""
+              value="Купить Выбранный товар">
+          </div>
         </div>
       </div>
-      <div  v-if="modalFonMess" v-on:click="modalFonMess = false" class='basketModalMini row justify-content-center' >
-        <div class="col-11">
-          <div class="row">
-            <div class="col-12 text-center mt-5">
-              <p v-if="modalFonMess == 'err'">Выбирете пожайлуста размер</p>
-              <p v-if="modalFonMess !='err' && modalFonMess">Вы действительно хотите удалить?</p>
-            </div>
-            <div v-if="modalFonMess !='err' && modalFonMess" class="col-12 mt-5">
-              <div class="row">
-                <div class="col-6">
-                  <input v-on:click="constDel(modalFonMess)" type="button" name="" class="btn btn-success" value="Да">
-                </div>
-                <div class="col-6 text-right">
-                  <input v-on:click="modalFonMess = false" type="button" name="" class='btn btn-danger' value="Нет">
-                </div>
+    </div>
+    <div v-if="!outArr" class="row mt-5">
+      <div class="col-12 text-center">
+        <h1>Ваша корзина пока пуста</h1>
+
+      </div>
+    </div>
+    <div v-if="modalFonMess" v-on:click="modalFonMess = false" class='basketModalMini row justify-content-center'>
+      <div class="col-11">
+        <div class="row">
+          <div class="col-12 text-center mt-5">
+            <p v-if="modalFonMess == 'err'">Выбирете пожайлуста размер</p>
+            <p v-if="modalFonMess !='err' && modalFonMess">Вы действительно хотите удалить?</p>
+          </div>
+          <div v-if="modalFonMess !='err' && modalFonMess" class="col-12 mt-5">
+            <div class="row">
+              <div class="col-6">
+                <input v-on:click="constDel(modalFonMess)" type="button" name="" class="btn btn-success" value="Да">
+              </div>
+              <div class="col-6 text-right">
+                <input v-on:click="modalFonMess = false" type="button" name="" class='btn btn-danger' value="Нет">
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div v-if="modalFon && modalFon != 'err'"  class='basketModalFonBig' class="row ">
-        <div class="col-12 ">
-          <div class="row  justify-content-center">
-            <div class="col-12 mt-2 text-right" style="cursor:pointer">
-              <h1 v-on:click="modalFon = false" >Закрыть</h1>
-            </div>
-              <div class="col-11 mt-5 col-md-6">
-                <div class="row formPay">
-                  <h1 class='col-12'>Ваша покупка на сумму: {{shopCount}}р.</h1>
-                  <p class='col-12 mt-5'>Введите данные вашей карты и адрес доставки:</p>
-                  <input type="number" name="card" class='form-control col-12 mt-3' placeholder="Номер вашей карты">
-                  <input type="text" name="name" class='form-control col-12 mt-3' placeholder="Имя владельца">
-                  <input type="text" name="cardDate" class='form-control col-5 mt-3' placeholder="Дата">
-                  <input type="text" name="code" class='form-control col-5 offset-2 mt-3' placeholder="Секретный код">
-                  <input type="number" name='tel' class='form-control col-12 mt-3' placeholder="Номер Вашего телефона для обратной связи">
-                  <input type="text" name='adres' class='form-control col-12 mt-3' placeholder="Адрес доставки">
-                  <div class="col-12 mt-5 text-right">
-                    <input v-on:click='formPay()' type="button" class='btn btn-success ' name="" value="Оплатить">
-                  </div>
-                </div>
+    </div>
+    <div v-if="modalFon && modalFon != 'err'" class="basketModalFonBig row" style="z-index: 1000;">
+      <div class="col-12 ">
+        <div class="row  justify-content-center">
+          <div class="col-12 mt-2 text-right" style="cursor: pointer;">
+            <h1 v-on:click="modalFon = false">Закрыть</h1>
+          </div>
+          <div class="col-11 mt-5 col-md-6">
+            <div class="row formPay">
+              <h1 class='col-12'>Ваша покупка на сумму: {{shopCount}}р.</h1>
+              <p class='col-12 mt-5'>Введите данные вашей карты и адрес доставки:</p>
+              <input type="number" name="card" class='form-control col-12 mt-3' placeholder="Номер вашей карты">
+              <input type="text" name="name" class='form-control col-12 mt-3' placeholder="Имя владельца">
+              <input type="text" name="cardDate" class='form-control col-5 mt-3' placeholder="Дата">
+              <input type="text" name="code" class='form-control col-5 offset-2 mt-3' placeholder="Секретный код">
+              <input type="number" name='tel' class='form-control col-12 mt-3'
+                placeholder="Номер Вашего телефона для обратной связи">
+              <input type="text" name='adres' class='form-control col-12 mt-3' placeholder="Адрес доставки">
+              <div class="col-12 mt-5 text-right">
+                <input v-on:click='formPay()' type="button" class='btn btn-success ' name="" value="Оплатить">
               </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-10">
-          <div class="row ">
-            <div v-if="outArr" class="col-12 "><!--Card-->
-              <div v-for="(key, i) in outArr" v-bind:data="key['id']" class="row mt-4 mb-4 myBasCard">
-                <div class='col-6 col-md-3'>
-                  <div v-bind:id="'carouselExampleIndicators' + i" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                      <li v-for="(n,j) in key['img']" v-if="j == 0"  v-bind:data-target="'carouselExampleIndicators' + i" data-slide-to="0" class="active"></li>
-                      <li v-else v-bind:data-target="'carouselExampleIndicators' + i" v-bind:data-slide-to="j"></li>
+    </div>
+    <div class="row justify-content-center">
+      <div class=" col-10">
+        <div class="row ">
+          <div v-if="outArr" class="col-12 ">
+            <!--Card-->
+            <div v-for="(key, i) in outArr" v-bind:data="key['id']" class="row mt-4 mb-4 myBasCard">
+              <div class='col-6 col-md-3'>
+                <div v-bind:id="'carouselExampleIndicators' + i" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li v-for="(n,j) in key['img']" v-if="j == 0" v-bind:data-target="'carouselExampleIndicators' + i"
+                      data-slide-to="0" class="active"></li>
+                    <li v-else v-bind:data-target="'carouselExampleIndicators' + i" v-bind:data-slide-to="j"></li>
 
-                    </ol>
+                  </ol>
 
-                    <div  class="carousel-inner">
+                  <div class="carousel-inner">
 
-                      <div v-for="(img,k) in key['img']" v-if="k == 0" class="carousel-item active">
-                        <img v-bind:src="'img/' + img" class="d-block w-100" alt="...">
-                      </div>
-                      <div v-else class="carousel-item">
-                        <img v-bind:src="'img/' + img" class="d-block w-100" alt="...">
-                      </div>
-
-
+                    <div v-for="(img,k) in key['img']" v-if="k == 0" class="carousel-item active">
+                      <img v-bind:src="'img/' + img" class="d-block w-100" alt="...">
                     </div>
-                    <a class="carousel-control-prev" v-bind:href="'#carouselExampleIndicators' + i" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" v-bind:href="'#carouselExampleIndicators' + i" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
+                    <div v-else class="carousel-item">
+                      <img v-bind:src="'img/' + img" class="d-block w-100" alt="...">
+                    </div>
+
+
                   </div>
+                  <a class="carousel-control-prev" v-bind:href="'#carouselExampleIndicators' + i" role="button"
+                    data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" v-bind:href="'#carouselExampleIndicators' + i" role="button"
+                    data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
 
-                </div>
-                <div class="col-12 col-md-7">
-                  <h2>{{key['name']}}</h2>
-                  <p class="countCard" v-bind:data="key['count']">Цена: {{key['count']}}</p>
-                  <p>Цвет: {{key['color'][0]}}</p>
-                  <select class="form-control sizeB" name="">
-                    <option selected disabled value='err'>Выбирите размер</option>
-                    <option v-for="size in key['size']" v-bind:value="size">{{size}}</option>
-                  </select>
-                </div>
-                <div class="col-12 col-md-2  text-right">
-                  <span>Выбрать</span><br>
-                  <input v-on:input="selectCard()" type="checkbox" class='selProd' name="" value="Выбрать"><br>
-                  <input v-on:click="shoping(key['id'],'one')" class="mt-4 btn btn-success" type="button" name="" value="Купить"><br>
-                  <input v-on:click="modalFonMess = key['id']" class="mt-4 btn btn-danger" type="button" name="" value="Удалить"><br>
-
-                </div>
               </div>
-            </div><!--over card-->
+              <div class="col-12 col-md-7">
+                <h2>{{key['name']}}</h2>
+                <p class="countCard" v-bind:data="key['count']">Цена: {{key['count']}}</p>
+                <p>Цвет: {{key['color'][0]}}</p>
+                <select class="form-control sizeB" name="">
+                  <option selected disabled value='err'>Выбирите размер</option>
+                  <option v-for="size in key['size']" v-bind:value="size">{{size}}</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-2  text-right">
+                <span>Выбрать</span><br>
+                <input v-on:input="selectCard()" type="checkbox" class='selProd' name="" value="Выбрать"><br>
+                <input v-on:click="shoping(key['id'],'one')" class="mt-4 btn btn-success" type="button" name=""
+                  value="Купить"><br>
+                <input v-on:click="modalFonMess = key['id']" class="mt-4 btn btn-danger" type="button" name=""
+                  value="Удалить"><br>
+
+              </div>
+            </div>
           </div>
+          <!--over card-->
         </div>
       </div>
-    </main>
-    <script src="script/header.js"></script>
-    <script src="script/manWoman.js"></script>
-    <script src="script/vueBasket.js"></script>
-    <script src="script/basket.js"></script>
+    </div>
+  </main>
+  <script src="script/jquery-3.5.1.min.js"></script>
+  <script src="script/bootstrap.min.js"></script>
+  <script src='script/vue.min.js'></script>
+  <script src="script/manWoman.js"></script>
+  <script src="script/vueBasket.js"></script>
+  <script src="script/basket.js"></script>
+</body>
 
-    <script src="script/jquery-3.5.1.min.js"></script>
-    <script src="script/bootstrap.min.js"></script>
-  </body>
 </html>

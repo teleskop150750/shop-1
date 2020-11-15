@@ -1,7 +1,7 @@
 const nameCatalog = localStorage.getItem('catalog');
 let arrSel = [];
 
-if (nameCatalog === 'man' || nameCatalog === null) {
+if (nameCatalog === 'man') {
   const linkW = document.querySelector('.nav__link--w');
   const linkM = document.querySelector('.nav__link--m');
   linkM.classList.remove('nav__link');

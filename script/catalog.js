@@ -29,6 +29,12 @@ if (nameCatalog === 'man') {
   arrSel = woman;
 }
 
+const fSport = document.querySelector('#filterSport');
+const fJacket = document.querySelector('#filterJacket');
+const fJeans = document.querySelector('#filterJeans');
+const fUnders = document.querySelector('#filterUndershirt');
+const fAll = document.querySelector('#filterAll');
+
 function filterCatalog(category, arr) {
   const out = [];
   for (let i = 0; i < arr.length; i++) {
@@ -38,12 +44,6 @@ function filterCatalog(category, arr) {
   }
   vueCatalog.arr = out;
 }
-
-const fSport = document.querySelector('#filterSport');
-const fJacket = document.querySelector('#filterJacket');
-const fJeans = document.querySelector('#filterJeans');
-const fUnders = document.querySelector('#filterUndershirt');
-const fAll = document.querySelector('#filterAll');
 
 function butCheck(but) {
   fSport.classList.remove('btn-success');

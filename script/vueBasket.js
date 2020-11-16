@@ -1,26 +1,26 @@
-let vueBasket = new Vue({
-  el:"#basket",
-  data:{
-    "outArr":false,
-    'checkArr':false,
-    'allCount':0,
-    'shopCount':0,
-    'modalFon':false,
-    'modalFonMess':false
+const vueBasket = new Vue({
+  el: '#basket',
+  data: {
+    outArr: false,
+    checkArr: false,
+    allCount: 0,
+    shopCount: 0,
+    modalFon: false,
+    modalFonMess: false,
   },
-  methods:{
-    delAll(){
+  methods: {
+    delAll() {
       localStorage.removeItem('basket');
       catalog();
     },
-    start(){
-      catalog()
+    start() {
+      catalog();
     },
-    delOne(id){
+    delOne(id) {
       let basket = localStorage.getItem('basket');
       basket = basket.split(',');
-      let arr = [];
-      for (var i = 0; i < basket.length; i++) {
+      const arr = [];
+      for (let i = 0; i < basket.length; i++) {
         if (basket[i] != id) {
           arr.push(basket[i]);
         }
@@ -28,104 +28,93 @@ let vueBasket = new Vue({
       localStorage.setItem('basket', arr);
       catalog();
     },
-    selectCard(){
-      let card = document.querySelectorAll('.myBasCard');
+    selectCard() {
+      const card = document.querySelectorAll('.myBasCard');
       let count = 0;
       this.checkArr = [];
-      for(let i = 0; i < card.length; i++){
-        let checkCard = card[i].querySelector('.selProd').checked;
-        if(checkCard == true){
+      for (let i = 0; i < card.length; i++) {
+        const checkCard = card[i].querySelector('.selProd').checked;
+        if (checkCard == true) {
           this.checkArr.push(card[i]);
-          count = count + parseInt(card[i].querySelector('.countCard').getAttribute('data'));
+          count += parseInt(card[i].querySelector('.countCard').getAttribute('data'));
           this.allCount = count;
         }
       }
-      if(count == 0){this.checkArr = false;catalog();}
+      if (count == 0) { this.checkArr = false; catalog(); }
     },
-    delSelect(){
-      let card = this.checkArr;
-      console.log(card)
-      for(let i = 0; i < card.length; i++){
-        let id = card[i].getAttribute('data');
+    delSelect() {
+      const card = this.checkArr;
+      console.log(card);
+      for (let i = 0; i < card.length; i++) {
+        const id = card[i].getAttribute('data');
         this.delOne(id);
       }
     },
-    shopingAll(arr,cou){
+    shopingAll(arr, cou) {
+      const card = arr;
+      const err = [];
+      const count = cou;
 
-        let card = arr;
-        let err = [];
-        let count = cou;
-
-        for (var i = 0; i < card.length; i++) {
-          let size = card[i].querySelector('.sizeB').value;
-          if(size == 'err'){
-            err.push(card[i]);
-          }
+      for (let i = 0; i < card.length; i++) {
+        const size = card[i].querySelector('.sizeB').value;
+        if (size == 'err') {
+          err.push(card[i]);
         }
-        if(err.length != 0){
-          basketErr(err);
-          this.modalFonMess = 'err';
-          closeModalTime();
-        }
-        else{
-          this.modalFon = card;
-          this.shopCount = count;
-        }
-
-
-
-    },
-    shoping(id,method){
-
-      if(method == 'one'){
-          let card = document.querySelectorAll('.myBasCard');
-          let position = [];
-          for (let i = 0; i < card.length; i++){
-            if (id == parseInt(card[i].getAttribute('data'))){
-              position.push(card[i])
-              this.shopingAll(position, card[i].querySelector('.countCard').getAttribute('data'));    //,
-            }
-          }
       }
-      else if(method == 'select'){
-        this.shopingAll(this.checkArr,this.allCount);
-      }
-      else if(method == "all"){
-        this.shopingAll(document.querySelectorAll('.myBasCard'),this.allCount);
+      if (err.length != 0) {
+        basketErr(err);
+        this.modalFonMess = 'err';
+        closeModalTime();
+      } else {
+        this.modalFon = card;
+        this.shopCount = count;
       }
     },
-    constDel(method){
+    shoping(id, method) {
+      if (method == 'one') {
+        const card = document.querySelectorAll('.myBasCard');
+        const position = [];
+        for (let i = 0; i < card.length; i++) {
+          if (id == parseInt(card[i].getAttribute('data'))) {
+            position.push(card[i]);
+            this.shopingAll(position, card[i].querySelector('.countCard').getAttribute('data')); // ,
+          }
+        }
+      } else if (method == 'select') {
+        this.shopingAll(this.checkArr, this.allCount);
+      } else if (method == 'all') {
+        this.shopingAll(document.querySelectorAll('.myBasCard'), this.allCount);
+      }
+    },
+    constDel(method) {
       if (method == 'all') {
         this.delAll();
-      }
-      else if(method == 'select'){
-        this.delSelect()
-      }
-      else if(parseInt(method) > 0){
-        this.delOne(method)
+      } else if (method == 'select') {
+        this.delSelect();
+      } else if (parseInt(method) > 0) {
+        this.delOne(method);
       }
     },
-    formPay(){
-      let card = document.querySelector('.formPay');
-      let numbCard = card.querySelector('input[name=card]');
-      let name = card.querySelector('input[name=name]');
-      let code = card.querySelector('input[name=code]');
-      let tel = card.querySelector('input[name=tel]');
-      let adres = card.querySelector('input[name=adres]');
-      let err = [];
+    formPay() {
+      const card = document.querySelector('.formPay');
+      const numbCard = card.querySelector('input[name=card]');
+      const name = card.querySelector('input[name=name]');
+      const code = card.querySelector('input[name=code]');
+      const tel = card.querySelector('input[name=tel]');
+      const adres = card.querySelector('input[name=adres]');
+      const err = [];
 
-      if(numbCard.value != 16){err.push(numbCard)}
-      if(name.value == ''){err.push(name)}
-      if(code.value != 3){err.push(code)}
-      if(tel.value < 9 && tel.value > 11){err.push(tel)}
-      if(adres.value == ''){err.push(adres)}
+      if (numbCard.value != 16) { err.push(numbCard); }
+      if (name.value == '') { err.push(name); }
+      if (code.value != 3) { err.push(code); }
+      if (tel.value < 9 && tel.value > 11) { err.push(tel); }
+      if (adres.value == '') { err.push(adres); }
 
-      if (err.length != 0){
+      if (err.length != 0) {
       //  basketErr(err)
-      }
-      else{
+      } else {
 
       }
-    }
-  }
+    },
+  },
 });

@@ -1,0 +1,314 @@
+.photostack {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background-color: #b8c4ff;
+}
+
+.js .photostack {
+  height: 100%;
+}
+
+.photostack-start {
+  cursor: pointer;
+}
+
+/* Wrapper and figures */
+
+/* The size of this wrapper can be smaller if the items should not be scattered across the whole container */
+.photostack > div {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.photostack figure {
+  position: relative;
+  display: inline-block;
+  width: 320px;
+  height: 360px;
+  padding: 40px;
+  margin: 5px;
+  text-align: center;
+  background: #ffffff;
+}
+
+.js .photostack figure {
+  position: absolute;
+  display: block;
+  margin: 0;
+}
+
+.photostack figcaption h2 {
+  margin: 20px 0 0 0;
+  font-size: 16px;
+  color: #a7a0a2;
+}
+
+.photostack-img {
+  display: block;
+  width: 240px;
+  height: 240px;
+  background: #f9f9f9;
+  outline: none;
+}
+
+.photostack-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+  width: 100%;
+  height: 100%;
+  padding: 50px 40px;
+  font-family: "Give You Glory", cursive;
+  font-size: 22px;
+  line-height: 1.25;
+  color: #a7a0a2;
+  text-align: left;
+  background: #ffffff;
+}
+
+.photostack-back p {
+  margin: 0;
+}
+
+.photostack-back p span {
+  text-decoration: line-through;
+}
+
+/* Navigation dots */
+.photostack nav {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  z-index: 90;
+  width: 100%;
+  text-align: center;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.photostack-start nav {
+  opacity: 0;
+}
+
+.photostack nav span {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  text-align: center;
+  cursor: pointer;
+  background: #aaaaaa;
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform 0.6s ease-in-out, background 0.3s;
+  transition: transform 0.6s ease-in-out, background 0.3s;
+  -webkit-transform: scale(0.48);
+  transform: scale(0.48);
+}
+
+.photostack nav span:last-child {
+  margin-right: 0;
+}
+
+.photostack nav span::after {
+  display: inline-block;
+  font-family: 'icons';
+  font-size: 80%;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 30px;
+  color: #ffffff;
+  text-transform: none;
+  vertical-align: top;
+  content: "\e600";
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.photostack nav span.current {
+  background: #888888;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.photostack nav span.current.flip {
+  background: #555555;
+  -webkit-transform: scale(1) rotateY(-180deg) translateZ(-1px);
+  transform: scale(1) rotateY(-180deg) translateZ(-1px);
+}
+
+.photostack nav span.flippable::after {
+  opacity: 1;
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+
+/* Overlays */
+
+/* Initial overlay on photostack container */
+.js .photostack::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-transition: opacity 0.3s, visibility 0s 0.3s;
+  transition: opacity 0.3s, visibility 0s 0.3s;
+}
+
+.js .photostack-start::before {
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+/* Button on photostack container */
+.js .photostack::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 101;
+  padding: 10px 20px;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  cursor: pointer;
+  content: 'View Gallery';
+  border: 3px solid #ffffff;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+}
+
+.js .photostack::before,
+.js .photostack::after {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.js .photostack-start::before,
+.js .photostack-start:hover::after,
+.touch .photostack-start::after {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Overlay on figure */
+.photostack figure::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: visible;
+  content: '';
+  background: rgba(0, 0, 0, 0.05);
+  opacity: 1;
+  -webkit-transition: opacity 0.6s;
+  transition: opacity 0.6s;
+}
+
+/* Hide figure overlay when it becomes current */
+figure.photostack-current::after {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.6s, visibility 0s 0.6s;
+  transition: opacity 0.6s, visibility 0s 0.6s;
+}
+
+/* Special classes for transitions and perspective */
+.photostack-transition figure {
+  -webkit-transition: -webkit-transform 0.6s ease-in-out;
+  transition: transform 0.6s ease-in-out;
+}
+
+.photostack-perspective {
+  -webkit-perspective: 1800px;
+  perspective: 1800px;
+}
+
+.photostack-perspective > div,
+.photostack-perspective figure {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.photostack-perspective figure,
+.photostack-perspective figure div {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.photostack-perspective figure.photostack-flip {
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+}
+
+.csstransformspreserve3d figure.photostack-flip .photostack-back {
+  display: block;
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.no-csstransformspreserve3d figure.photostack-showback .photostack-back {
+  display: block;
+}
+
+/* The no-JS fallback look does not need to be boring ;) */
+.no-js .photostack figure {
+  box-shadow: -2px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.no-js .photostack figure::after {
+  display: none;
+}
+
+.no-js .photostack figure:nth-child(3n) {
+  -webkit-transform: translateX(-10%) rotate(5deg);
+  transform: translateX(-10%) rotate(5deg);
+}
+
+.no-js .photostack figure:nth-child(3n-2) {
+  -webkit-transform: translateY(10%) rotate(-3deg);
+  transform: translateY(10%) rotate(-3deg);
+}
+
+/* Some custom styles for the demo */
+
+/* Since we don't have back sides for the first photo stack, we don't want the current dot to become too big */
+#photostack-1 nav span.current {
+  background: #888888;
+  -webkit-transform: scale(0.61);
+  transform: scale(0.61);
+}
+
+/* ---------------------------------------------------------- */
+.photostack-img{
+  position: relative;
+}
+
+.photostack-img img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}

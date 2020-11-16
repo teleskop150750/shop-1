@@ -29,7 +29,7 @@
   },
   "eslintIgnore": [
     "/node_modules/",
-    "/src/js/libs/"
+    "/libs/"
   ],
   "stylelint": {
     "extends": [

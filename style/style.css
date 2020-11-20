@@ -70,6 +70,9 @@ a {
   .navbar-collapse {
     position: static;
   }
+  .navbar-collapse {
+    background-color: transparent;
+  }
 }
 
 .nav-link {
